@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>LEVEL UP: Ваша команда</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 30px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .team {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 15px;
+        }
+
+        .role {
+            font-size: 26px;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        .role-desc {
+            font-size: 18px;
+            margin: 10px auto;
+            max-width: 600px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🎮 LEVEL UP: Ваш квест починається!</h1>
+
+<div class="team" id="team">Ваша команда: ?</div>
+<div class="role" id="role">Ваша роль: ?</div>
+<div class="role-desc" id="roleDesc">
+    Натисніть кнопку, щоб отримати роль у команді
+</div>
+
+<button class="btn" onclick="assignTeam()">Отримати команду та роль</button>
+
+<script>
+    const teams = ["🟥 RED", "🟦 BLUE", "🟩 GREEN", "🟨 YELLOW"];
+
+    const roles = [
+        {
+            name: "Стратег",
+            desc: "Ти думаєш наперед. Ставиш питання «що буде далі?», слідкуєш, щоб рішення було не на 5 хвилин, а на всю гру. Можеш зупинити команду, якщо ідея сира."
+        },
+        {
+            name: "Комунікатор",
+            desc: "Ти слідкуєш, щоб усіх почули. Кожен у команді має щось сказати. Якщо хтось мовчить — ти звертаєшся саме до нього. Без твоєї фрази «всі висловились» рішення не приймається."
+        },
+        {
+            name: "Миротворець",
+            desc: "Ти слідкуєш за тоном спілкування. Якщо хтось перебиває, тисне або знецінює — ти втручаєшся. Можеш запропонувати паузу або зміну формату обговорення."
+        },
+        {
+            name: "Практик",
+            desc: "Ти переводиш ідеї в дії. Формулюєш рішення коротко: «ми робимо ось так». Перевіряєш, чи це реально, а не просто гарні слова."
+        }
+    ];
+
+    function assignTeam() {
+        const team = teams[Math.floor(Math.random() * teams.length)];
+        const role = roles[Math.floor(Math.random() * roles.length)];
+
+        document.getElementById("team").innerText = "Ваша команда: " + team;
+        document.getElementById("role").innerText = "Ваша роль: " + role.name;
+        document.getElementById("roleDesc").innerText = role.desc;
+    }
+</script>
+
+</body>
+</html>
